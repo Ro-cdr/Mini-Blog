@@ -1,0 +1,117 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+html {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+}
+
+/* Header */
+header {
+    background-color: #0766AD;
+    min-height: 30px;
+}
+
+ul {
+    display: flex;
+    margin: 0px 60px;
+    list-style-type: none;
+    overflow: hidden;
+}
+
+li {
+    flex-direction: row;
+    padding: 15px 20px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+ul li:hover {
+    background-color: #07518a;
+}
+
+/* Body */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    margin-top: 40px;
+}
+
+.post {
+    max-width: 50%;
+}
+
+hr {
+    size: 1px;
+    color: gray;
+    width: 50%;
+}
+
+/* Form */
+form {
+    width: 58rem;
+}
+
+form > .form-input {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+#pTitle {
+    height: 25px;
+    width: 40%;
+    font-size: 16px;
+}
+
+#pContent {
+    font-size: 16px;
+}
+
+#pTitle, #pContent {
+    border: 1px solid #A0A0A0;
+    border-radius: 5px;
+}
+
+textarea {
+    resize: vertical;
+    width: 100%;
+}
+
+button {
+    height: 40px;
+    width: 80px;
+    border: 0px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #F6995C;
+    color: white;
+}
+
+button:hover {
+    background-color: #D7864F;
+}
+
+/* Footer */
+footer {
+    padding: 5px 30px;
+    min-height: 30px;
+    text-align: center;
+    background-color: #29ADB2;
+    color: white;
+}
