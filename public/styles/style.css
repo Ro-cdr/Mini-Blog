@@ -69,7 +69,7 @@ form > .form-input {
 
 .form-label {
     margin-bottom: 5px;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
 }
 
 #pTitle {
@@ -98,6 +98,7 @@ button {
     border: 0px;
     border-radius: 5px;
     font-size: 16px;
+    margin-bottom: 30px;
     font-weight: bold;
     background-color: #F6995C;
     color: white;
@@ -114,4 +115,84 @@ footer {
     text-align: center;
     background-color: #29ADB2;
     color: white;
+}
+
+@media (max-width: 768px) {
+    /* Home */
+    h1 {
+        font-size: 30px;
+    }
+
+    ul {
+        margin-left: 0px;
+    }
+
+    .container {
+        margin-top: 15px;
+    }
+
+    .post {
+        max-width: 75%;
+    }
+
+    .post > h2 {
+        font-size: 22px;
+    }
+
+    hr {
+        width: 75%;
+    }
+
+    /* New Post */
+    .form-label {
+        font-size: 1.2rem;
+    }
+
+    form {
+        width: 75%;
+    }
+
+    #pTitle {
+        width: 100%;
+    }
+
+    button {
+        margin-bottom: 30px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1280px) {
+    /* Home */
+    ul {
+        margin-left: 25px;
+    }
+
+    .container {
+        margin-top: 25px;
+    }
+
+    .post {
+        max-width: 70%;
+    }
+
+    hr {
+        width: 70%;
+    }
+
+    /* New Post */
+    .form-label {
+        font-size: 1.2rem;
+    }
+
+    form {
+        width: 70%;
+    }
+
+    #pTitle {
+        width: 60%;
+    }
+
+    button {
+        margin-bottom: 30px;
+    }
 }
