@@ -3,7 +3,7 @@
 <div class="container">
     <h1>Create a new post</h1>
 
-    <form>
+    <form action="/submit" method="POST">
         <div class="form-label">
             <label class="post-input input-title" for="pTitle">Title:</label>
         </div>
@@ -15,7 +15,7 @@
             <label class="post-input input-content" for="pContent">Content:</label>
         </div>
         <div class="form-input">
-            <textarea id="pContent" name="pContent" rows="15" placeholder=""></textarea>
+            <textarea type="text" id="pContent" name="pContent" rows="15"></textarea>
         </div>
 
         <button type="submit">Post</button>

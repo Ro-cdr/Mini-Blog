@@ -1,11 +1,12 @@
 import express from "express";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
 import bodyParser from "body-parser";
 
 const app = express();
 const port = 3000;
-const __dirname = dirname(fileURLToPath(import.meta.url));
+
+var userBlog = {};
+var blogList = [];
+var isEmpty = true;
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -19,12 +20,24 @@ function currentDate() {
     return postDate;
 }
 
+function Blog(title, content) {
+    this.title = title;
+    this.content = content;
+}
+
 app.get('/', (req, res) => {
-    res.render("index.ejs", {today: currentDate()});
+    res.render("index.ejs", {today: currentDate(), empty: isEmpty, blogs: blogList});
 })
 
 app.get('/post', (req, res) => {
     res.render("post.ejs");
+})
+
+app.post('/submit', (req, res) => {
+    userBlog = new Blog(req.body["pTitle"], req.body["pContent"]);
+    blogList.push(userBlog);
+    isEmpty = false;
+    res.redirect("/");
 })
 
 app.listen(port, () => {

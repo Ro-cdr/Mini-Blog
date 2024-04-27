@@ -12,7 +12,7 @@
             <br>
             Whether you're an experienced writer or just starting out, we invite you to join our community 
             and contribute your ideas to the conversation. From personal anecdotes to creative endeavors, 
-            from heartfelt reflections to inspiring insights, there's room for every topic on Mini-Flog.<br>
+            from heartfelt reflections to inspiring insights, there's room for every topic on Mini-Blog.
             Every story, insight, and perspective has value, and we encourage you to contribute yours. 
             Remember, the beauty of blogging lies in its diversity, so feel free to write about whatever 
             inspires you as long as it's respectful to other users in our community.<br>
@@ -22,6 +22,17 @@
         </p>
     </div>
     <hr/>
+
+    <% if (!empty) { %>
+        <% blogs.forEach(blog => { %>
+            <div class="post">
+                <h2><%=blog.title%></h2>
+                <p><%=today%></p>
+                <p class="post-body"><%=blog.content%></p>
+            </div>
+            <hr/>
+        <% }); %>
+    <%}%>
 </div>
 
 <%- include('partials/footer.ejs') %>
