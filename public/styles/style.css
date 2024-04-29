@@ -48,11 +48,11 @@ ul li:hover {
     margin: 40px 0;
 }
 
-.post {
+.blog {
     width: 60%;
 }
 
-.post-body {
+.blog-body {
     white-space: pre-line;
 }
 
@@ -60,6 +60,42 @@ hr {
     size: 1px;
     color: gray;
     width: 60%;
+}
+
+button {
+    height: 40px;
+    width: 80px;
+    border: 0px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+img {
+    fill: white;
+}
+
+.button-container {
+    display: flex;
+    justify-content: start;
+}
+
+.edit-btn {
+    margin-right: 10px;
+    background-color: #38aa57;
+}
+
+.delete-btn {
+    background-color: #dd3a3a;
+}
+
+.edit-btn:hover {
+    background-color: #27803f;
+}
+
+.delete-btn:hover {
+    background-color: #b32929;
 }
 
 /* Form */
@@ -96,19 +132,12 @@ textarea {
     width: 100%;
 }
 
-button {
-    height: 40px;
-    width: 80px;
-    border: 0px;
-    border-radius: 5px;
-    font-size: 16px;
+.post-btn {
     margin-bottom: 30px;
-    font-weight: bold;
     background-color: #F6995C;
-    color: white;
 }
 
-button:hover {
+.post-btn:hover {
     background-color: #D7864F;
 }
 
@@ -135,11 +164,11 @@ footer {
         margin-top: 15px;
     }
 
-    .post {
+    .blog {
         width: 80%;
     }
 
-    .post > h2 {
+    .blog > h2 {
         font-size: 22px;
     }
 
@@ -147,7 +176,7 @@ footer {
         width: 80%;
     }
 
-    /* New Post */
+    /* New Blog */
     .form-label {
         font-size: 1.1rem;
     }
@@ -160,7 +189,7 @@ footer {
         width: 100%;
     }
 
-    button {
+    .post-btn {
         margin-bottom: 30px;
     }
 }
@@ -175,7 +204,7 @@ footer {
         margin-top: 25px;
     }
 
-    .post {
+    .blog {
         width: 70%;
     }
 
@@ -183,7 +212,7 @@ footer {
         width: 70%;
     }
 
-    /* New Post */
+    /* New Blog */
     .form-label {
         font-size: 1.2rem;
     }
@@ -196,7 +225,7 @@ footer {
         width: 60%;
     }
 
-    button {
+    .post-btn {
         margin-bottom: 30px;
     }
 }

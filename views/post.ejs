@@ -1,24 +1,24 @@
 <%- include('partials/header.ejs') %>
 
 <div class="container">
-    <h1>Create a new post</h1>
+    <h1>Create a new blog</h1>
 
     <form action="/submit" method="POST">
         <div class="form-label">
-            <label class="post-input input-title" for="pTitle">Title:</label>
+            <label class="blog-input input-title" for="pTitle">Title:</label>
         </div>
         <div class="form-input">
             <input type="text" id="pTitle" name="pTitle">
         </div>
 
         <div class="form-label">
-            <label class="post-input input-content" for="pContent">Content:</label>
+            <label class="blog-input input-content" for="pContent">Content:</label>
         </div>
         <div class="form-input">
             <textarea type="text" id="pContent" name="pContent" rows="15"></textarea>
         </div>
 
-        <button type="submit">Post</button>
+        <button type="submit" class="post-btn">Post</button>
     </form>
 </div>
 

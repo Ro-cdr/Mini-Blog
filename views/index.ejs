@@ -3,7 +3,7 @@
 <div class="container">
     <h1>Mini-Blog</h1>
 
-    <div class="post">
+    <div class="blog">
         <h2>Welcome to Mini-Blog</h2>
         <p>24 April 2024</p>
         <p>
@@ -17,7 +17,7 @@
             Remember, the beauty of blogging lies in its diversity, so feel free to write about whatever 
             inspires you as long as it's respectful to other users in our community.<br>
             <br>
-            So go ahead, take that leap, and start with your first post. Your words have the power to inform, entertain, 
+            So go ahead, take that leap, and start with your first blog. Your words have the power to inform, entertain, 
             and inspire others. We're here to support you every step of the way. Happy writing!
         </p>
     </div>
@@ -25,10 +25,24 @@
 
     <% if (!empty) { %>
         <% blogs.forEach(blog => { %>
-            <div class="post">
+            <div class="blog">
                 <h2><%=blog.title%></h2>
                 <p><%=today%></p>
-                <p class="post-body"><%=blog.content%></p>
+                <p class="blog-body"><%=blog.content%></p>
+
+                <div class="button-container">
+                    <button class="edit-btn" type="button">
+                        <img src="icons/edit_icon.svg" alt="edit icon"/>
+                    </button>
+
+                    <form class="form-delete" action="/delete" method="POST">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="blogId" value="<%=blog.id%>">
+                        <button class="delete-btn" type="submit">
+                            <img src="icons/delete_icon.svg" alt="delete icon"/>
+                        </button>
+                    </form>
+                </div>
             </div>
             <hr/>
         <% }); %>
