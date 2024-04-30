@@ -141,6 +141,13 @@ textarea {
     background-color: #D7864F;
 }
 
+.form-condition {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    color: gray;
+}
+
 /* Footer */
 footer {
     padding: 5px 30px;
