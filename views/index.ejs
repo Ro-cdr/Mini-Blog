@@ -26,15 +26,19 @@
     <% if (!empty) { %>
         <% blogs.forEach(blog => { %>
             <div class="blog">
+                <!-- TODO: Include and "Edited" tag if blog was edited -->
                 <h2><%=blog.title%></h2>
                 <p><%=today%></p>
                 <p class="blog-body"><%=blog.content%></p>
 
                 <div class="button-container">
-                    <button class="edit-btn" type="button">
-                        <img src="icons/edit_icon.svg" alt="edit icon"/>
-                    </button>
-
+                    <form class="form-edit" action="/editBlog" method="POST">
+                        <input type="hidden" name="_method" value="GET">
+                        <input type="hidden" name="blogId" value="<%=blog.id%>">
+                        <button class="edit-btn" type="submit">
+                            <img src="icons/edit_icon.svg" alt="edit icon"/>
+                        </button>
+                    </form>
                     <form class="form-delete" action="/delete" method="POST">
                         <input type="hidden" name="_method" value="DELETE">
                         <input type="hidden" name="blogId" value="<%=blog.id%>">

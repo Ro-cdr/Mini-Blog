@@ -8,6 +8,8 @@ const port = 3000;
 var userBlog = {};
 var blogList = [];
 var isEmpty = true;
+var editMode = false;
+var blogIdAux = 0;
 
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -29,6 +31,8 @@ function currentDate() {
     return blogDate;
 }
 
+// TODO: Include date in Blog object
+// TODO: Include "edited" flag in Blog object
 function Blog(id, title, content) {
     this.id = id;
     this.title = title;
@@ -44,13 +48,38 @@ app.get('/', (req, res) => {
 })
 
 app.get('/newBlog', (req, res) => {
-    res.render("post.ejs");
+    res.render("post.ejs", {edit: editMode, title: '', content: ''});
 })
 
 app.post('/submit', (req, res) => {
+    // TODO: Fix blog ID. Duplicate ID when deleting a blog and then creating a new one
     userBlog = new Blog(blogList.length + 1, req.body["pTitle"], req.body["pContent"]);
     blogList.push(userBlog);
     isEmpty = false;
+    res.redirect("/home");
+})
+
+app.get('/editBlog', (req,res) => {
+    editMode = true;
+    const id = req.body.blogId;
+    blogIdAux = id;
+    var blog = blogList.filter(item => { return item.id == id })[0];
+    var blogTitle = blog.title;
+    var blogContent = blog.content;
+
+    res.render("post.ejs", {edit: editMode, title: blogTitle, content: blogContent});
+})
+
+app.put('/edit', (req,res) => {
+    editMode = false;
+    var title = req.body["pTitle"];
+    var content = req.body["pContent"];
+
+    // TODO: Change blog date when updating blog
+    // TODO: Change "edited" flag when updating blog
+    blogList[blogIdAux-1].title = title;
+    blogList[blogIdAux-1].content = content;
+
     res.redirect("/home");
 })
 

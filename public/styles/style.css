@@ -81,6 +81,10 @@ img {
     justify-content: start;
 }
 
+.button-container form {
+    width: fit-content;
+}
+
 .edit-btn {
     margin-right: 10px;
     background-color: #38aa57;
