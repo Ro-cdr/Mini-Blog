@@ -9,6 +9,7 @@ var userBlog = {};
 var blogList = [];
 var isEmpty = true;
 var editMode = false;
+var idCount = 1;
 var blogIdAux = 0;
 
 app.use(express.static("public"));
@@ -51,11 +52,11 @@ app.get('/newBlog', (req, res) => {
     res.render("post.ejs", {edit: editMode, title: '', content: ''});
 })
 
-app.post('/submit', (req, res) => {
-    // TODO: Fix blog ID. Duplicate ID when deleting a blog and then creating a new one
-    userBlog = new Blog(blogList.length + 1, req.body["pTitle"], req.body["pContent"]);
+app.post('/submit', (req, res) => {   
+    if (blogList.length == 0) isEmpty = false;
+    userBlog = new Blog(idCount, req.body["pTitle"], req.body["pContent"]);
+    idCount += 1;
     blogList.push(userBlog);
-    isEmpty = false;
     res.redirect("/home");
 })
 
@@ -86,6 +87,7 @@ app.put('/edit', (req,res) => {
 app.delete('/delete', (req, res) => {
     const blogId = req.body.blogId;
     blogList = blogList.filter(userBlog => userBlog.id != blogId);
+    if (blogList.length == 0) isEmpty = true;
     res.redirect("/home");
 });
 
