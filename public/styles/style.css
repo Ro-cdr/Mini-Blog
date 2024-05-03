@@ -45,17 +45,74 @@ ul li:hover {
     flex-direction: column;
     align-items: center;
     flex: 1;
-    margin-top: 40px;
+    margin: 40px 0;
 }
 
-.post {
-    max-width: 50%;
+.blog {
+    width: 60%;
+}
+
+.blog-body {
+    white-space: pre-line;
+}
+
+.blog-title {
+    margin-bottom: 5px;
+}
+
+.blog-date {
+    margin-top: 0;
+    margin-bottom: 3px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #A0A0A0;
+    font-style: italic;
 }
 
 hr {
     size: 1px;
     color: gray;
-    width: 50%;
+    width: 60%;
+}
+
+button {
+    height: 40px;
+    width: 80px;
+    border: 0px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+}
+
+img {
+    fill: white;
+}
+
+.button-container {
+    display: flex;
+    justify-content: start;
+}
+
+.button-container form {
+    width: fit-content;
+}
+
+.edit-btn {
+    margin-right: 10px;
+    background-color: #38aa57;
+}
+
+.delete-btn {
+    background-color: #dd3a3a;
+}
+
+.edit-btn:hover {
+    background-color: #27803f;
+}
+
+.delete-btn:hover {
+    background-color: #b32929;
 }
 
 /* Form */
@@ -92,20 +149,20 @@ textarea {
     width: 100%;
 }
 
-button {
-    height: 40px;
-    width: 80px;
-    border: 0px;
-    border-radius: 5px;
-    font-size: 16px;
+.post-btn {
     margin-bottom: 30px;
-    font-weight: bold;
     background-color: #F6995C;
-    color: white;
 }
 
-button:hover {
+.post-btn:hover {
     background-color: #D7864F;
+}
+
+.form-condition {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    color: gray;
 }
 
 /* Footer */
@@ -131,32 +188,32 @@ footer {
         margin-top: 15px;
     }
 
-    .post {
-        max-width: 75%;
+    .blog {
+        width: 80%;
     }
 
-    .post > h2 {
+    .blog > h2 {
         font-size: 22px;
     }
 
     hr {
-        width: 75%;
+        width: 80%;
     }
 
-    /* New Post */
+    /* New Blog */
     .form-label {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     form {
-        width: 75%;
+        width: 80%;
     }
 
     #pTitle {
         width: 100%;
     }
 
-    button {
+    .post-btn {
         margin-bottom: 30px;
     }
 }
@@ -171,15 +228,15 @@ footer {
         margin-top: 25px;
     }
 
-    .post {
-        max-width: 70%;
+    .blog {
+        width: 70%;
     }
 
     hr {
         width: 70%;
     }
 
-    /* New Post */
+    /* New Blog */
     .form-label {
         font-size: 1.2rem;
     }
@@ -192,7 +249,7 @@ footer {
         width: 60%;
     }
 
-    button {
+    .post-btn {
         margin-bottom: 30px;
     }
 }
