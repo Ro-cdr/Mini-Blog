@@ -41,6 +41,7 @@ function Blog(id, title, content, date) {
 }
 
 app.get('/home', (req, res) => {
+    if (editMode) editMode = false;
     res.render("index.ejs", {empty: isEmpty, blogs: blogList});
 })
 
@@ -49,6 +50,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/newBlog', (req, res) => {
+    if (editMode) editMode = false;
     res.render("post.ejs", {edit: editMode, title: '', content: ''});
 })
 
@@ -76,10 +78,10 @@ app.put('/edit', (req,res) => {
     var title = req.body["pTitle"];
     var content = req.body["pContent"];
 
-    blogList[blogIdAux-1].title = title;
-    blogList[blogIdAux-1].content = content;
-    blogList[blogIdAux-1].lastUpdate = currentDate();
-    blogList[blogIdAux-1].edited = true;
+    blogList.filter(item => { return item.id == blogIdAux })[0].title = title;
+    blogList.filter(item => { return item.id == blogIdAux })[0].content = content;
+    blogList.filter(item => { return item.id == blogIdAux })[0].lastUpdate = currentDate();
+    blogList.filter(item => { return item.id == blogIdAux })[0].edited = true;
 
     res.redirect("/home");
 })
