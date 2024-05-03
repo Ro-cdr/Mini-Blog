@@ -16,7 +16,6 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride(function (req, res) {
     if (req.body && typeof req.body === 'object' && '_method' in req.body) {
-      // look in urlencoded POST bodies and delete it
       var method = req.body._method
       delete req.body._method
       return method
@@ -28,20 +27,21 @@ function currentDate() {
     const months = ["January", "February", "March", "April", "May", "June", 
     "July", "August", "September", "October", "November", "December"];
 
-    var blogDate = dt.getDate() + ' ' + months[dt.getMonth()] + ' ' + dt.getFullYear();
+    var blogDate = months[dt.getMonth()] + ' ' + dt.getDate()  + ', ' + dt.getFullYear();
     return blogDate;
 }
 
-// TODO: Include date in Blog object
-// TODO: Include "edited" flag in Blog object
-function Blog(id, title, content) {
+function Blog(id, title, content, date) {
     this.id = id;
     this.title = title;
     this.content = content;
+    this.publishDate = date;
+    this.edited = false;
+    this.lastUpdate = '';
 }
 
 app.get('/home', (req, res) => {
-    res.render("index.ejs", {today: currentDate(), empty: isEmpty, blogs: blogList});
+    res.render("index.ejs", {empty: isEmpty, blogs: blogList});
 })
 
 app.get('/', (req, res) => {
@@ -54,7 +54,7 @@ app.get('/newBlog', (req, res) => {
 
 app.post('/submit', (req, res) => {   
     if (blogList.length == 0) isEmpty = false;
-    userBlog = new Blog(idCount, req.body["pTitle"], req.body["pContent"]);
+    userBlog = new Blog(idCount, req.body["pTitle"], req.body["pContent"], currentDate());
     idCount += 1;
     blogList.push(userBlog);
     res.redirect("/home");
@@ -76,10 +76,10 @@ app.put('/edit', (req,res) => {
     var title = req.body["pTitle"];
     var content = req.body["pContent"];
 
-    // TODO: Change blog date when updating blog
-    // TODO: Change "edited" flag when updating blog
     blogList[blogIdAux-1].title = title;
     blogList[blogIdAux-1].content = content;
+    blogList[blogIdAux-1].lastUpdate = currentDate();
+    blogList[blogIdAux-1].edited = true;
 
     res.redirect("/home");
 })

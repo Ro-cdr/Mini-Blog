@@ -56,6 +56,19 @@ ul li:hover {
     white-space: pre-line;
 }
 
+.blog-title {
+    margin-bottom: 5px;
+}
+
+.blog-date {
+    margin-top: 0;
+    margin-bottom: 3px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #A0A0A0;
+    font-style: italic;
+}
+
 hr {
     size: 1px;
     color: gray;
